@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>文字轉語音</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container">
+            <a class="navbar-brand" href="index.html"><img
+                    src="https://i0.wp.com/tw.alphacamp.co/wp-content/uploads/2022/12/60e827295bbd949f8a41a2ec_5d5b7df8da745a6fcc9a7fe1_5b9110e86e11f7d979b0dc36_javascript.png?fit=785%2C340&ssl=1"
+                    alt="Logo" width="30" height="24" class="d-inline-block align-text-top">JS 套件介紹</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="aos.html">AOS 動畫</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="文字轉語音.html">文字轉語音</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="Lottie.html">Lottie 動畫</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="Chart.html">Chart.js 圖表</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="Lazy-loading.html">圖片懶加載</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            列表
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="Anime.html">Anime 動畫</a></li>
+                            <li><a class="dropdown-item" href="Moment.html">Moment.js 展示</a></li>
+                            <li><a class="dropdown-item" href="Three.html">Three.js 展示</a></li>
+                            <li><a class="dropdown-item" href="Vue.html">Vue.js 展示</a></li>
+                            <li><a class="dropdown-item" href="d3.html">D3.js 展示</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container my-5">
+        <h2>文字轉語音</h2>
+        <p><a href="https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesis#examples" target="_blank">Web
+                Speech API 官網</a></p>
+        <h3>範例程式碼</h3>
+
+        <pre><code>
+            &lt;div class="mb-3"&gt;
+                &lt;label for="textToSpeak" class="form-label"&gt;輸入文字：&lt;/label&gt;
+                &lt;textarea class="form-control" id="textToSpeak" rows="3" placeholder="輸入你想要轉換的文字"&gt;&lt;/textarea&gt;
+            &lt;/div&gt;
+            &lt;button id="speakButton" class="btn btn-primary"&gt;開始朗讀&lt;/button&gt;
+            
+            &lt;script&gt;
+                document.getElementById('speakButton').addEventListener('click', function () {
+                    const text = document.getElementById('textToSpeak').value;
+                    if (text.trim() === '') {
+                        alert('請輸入文字');
+                        return;
+                    }
+            
+                    // 使用 SpeechSynthesisUtterance 進行語音合成
+                    const utterance = new SpeechSynthesisUtterance(text);
+                    window.speechSynthesis.speak(utterance);
+                });
+            &lt;/script&gt;
+            </code></pre>
+
+
+        <h3>效果展示</h3>
+
+        <div class="mb-3">
+            <label for="textToSpeak" class="form-label">輸入文字：</label>
+            <textarea class="form-control" id="textToSpeak" rows="3" placeholder="輸入你想要轉換的文字"></textarea>
+        </div>
+        <button id="speakButton" class="btn btn-primary">開始朗讀</button>
+
+
+        <script>
+            document.getElementById('speakButton').addEventListener('click', function () {
+                const text = document.getElementById('textToSpeak').value;
+                if (text.trim() === '') {
+                    alert('請輸入文字');
+                    return;
+                }
+
+                // 使用 SpeechSynthesisUtterance 進行語音合成
+                const utterance = new SpeechSynthesisUtterance(text);
+                window.speechSynthesis.speak(utterance);
+            });
+        </script>
+
+    </div>
+
+    <script src="navbar.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
+</body>
+
+</html>
